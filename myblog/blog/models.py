@@ -31,7 +31,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название поста')
     slug = models.SlugField(max_length=255, verbose_name='url поста', unique=True)
     author = models.CharField(max_length=200, verbose_name='Автор')
-    content = models.TextField(blank=True, verbose_name='Контент поста')
+    content = models.TextField(blank=True, verbose_name='Текст статьи')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     img = models.ImageField(upload_to='images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
     views = models.IntegerField(default=0, verbose_name='Количество просмотров')
