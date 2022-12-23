@@ -31,13 +31,13 @@ class Post(models.Model):
     title = models.CharField(max_length=255, verbose_name='Название поста')
     slug = models.SlugField(max_length=255, verbose_name='url поста', unique=True)
     author = models.CharField(max_length=200, verbose_name='Автор')
-    content = models.TextField(blank=True)
+    content = models.TextField(blank=True, verbose_name='Контент поста')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     img = models.ImageField(upload_to='images/%Y/%m/%d/', blank=True, null=True, verbose_name='Изображение')
     views = models.IntegerField(default=0, verbose_name='Количество просмотров')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='posts',
                                  blank=True, null=True, verbose_name='Категория поста')
-    tags = models.ManyToManyField(Tag, blank=True, related_name='posts')
+    tags = models.ManyToManyField(Tag, blank=True, related_name='posts', verbose_name='Теги поста')
 
     def __str__(self):
         return self.title
