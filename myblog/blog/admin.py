@@ -36,7 +36,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('pk', 'title', 'author', 'created_at', 'category', 'get_photo')
     list_display_links = ('pk', 'title')
     search_fields = ('title', 'author', )
-    list_filter = ('author', 'created_at', 'category', )
+    list_filter = ('author', 'created_at', 'category', 'tags')
     fields = ('title', 'slug', 'author', 'content', 'created_at', 'img', 'get_photo', 'views', 'category', 'tags', )
     #  какие поля не редактируемые
     readonly_fields = ('get_photo', 'created_at', 'views', )
