@@ -1,9 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
 {% load static %} 
-{% load sidebar %}
+{% load sidebar %} 
 
-{% block title %}{{ post.title }} :: {{ block.super }}
-{% endblock %} 
+{% block title %}{{ post.title }} :: {{ block.super }} {% endblock %}
 
 {% block content %}
 <section class="single-blog-area">
@@ -198,18 +197,14 @@
             </div>
           </div>
           <div class="col-md-4">
-
-          {% get_most_popular 5 %}
-
-          {% get_tags %}
-
             <div class="newsletter">
-              <h2 class="sidebar-title">Subscribe To oUR nEWSLETTER</h2>
-              <form action="#" method="post">
-                <input type="email" name="" id="" placeholder="Email" />
-                <input type="submit" value="Subscribe" />
+              <h2 class="sidebar-title">Поиск</h2>
+              <form action="{% url 'search' %}" method="get">
+                <input type="text" name="s" placeholder="Search..." />
+                <input type="submit" value="Поиск" />
               </form>
             </div>
+            {% get_most_popular 5 %} {% get_tags %}
           </div>
         </div>
       </div>
